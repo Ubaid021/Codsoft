@@ -1,0 +1,30 @@
+def arithmetic_operation():
+    print("Welcome to  Calculator ")
+    
+    try:
+        x = float(input("Enter the first number: "))
+        y = float(input("Enter the second number: "))
+        symbol = input("Choose operation (+, -, *, /): ")
+
+        result = None
+        if symbol  == '+':
+            result = x + y
+        elif symbol  == '-':
+            result = x - y
+        elif symbol  == '*':
+            result = x * y
+        elif symbol  == '/':
+            if y == 0:
+                print("Oops! Division by zero is undefined.")
+                return
+            result = x / y
+        else:
+            print("Invalid operation selected!")
+            return
+
+        print(f"Result: {x} {symbol} {y} = {result}")
+
+    except ValueError:
+        print("Invalid number input. Please enter numeric values.")
+
+arithmetic_operation()
