@@ -1,0 +1,37 @@
+import random
+
+def rps_game():
+    choices = ['rock', 'paper', 'scissors']
+    user_score = 0
+    comp_score = 0
+
+    print("🎮 Let's play Rock, Paper, Scissors!")
+
+    while True:
+        user = input("Your choice (rock/paper/scissors): ").lower()
+        if user not in choices:
+            print("❌ Invalid input. Try again.")
+            continue
+
+        comp = random.choice(choices)
+        print(f"Computer chose: {comp}")
+
+        if user == comp:
+            print("😐 It's a tie.")
+        elif (user == 'rock' and comp == 'scissors') or \
+             (user == 'paper' and comp == 'rock') or \
+             (user == 'scissors' and comp == 'paper'):
+            print("🎉 You win!")
+            user_score += 1
+        else:
+            print("🤖 Computer wins.")
+            comp_score += 1
+
+        print(f"Score ➤ You: {user_score} | Computer: {comp_score}")
+
+        play_more = input("Play again? (y/n): ").lower()
+        if play_more != 'y':
+            print("👋 Game over. Thanks for playing!")
+            break
+
+rps_game()
